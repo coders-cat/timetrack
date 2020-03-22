@@ -1,0 +1,25 @@
+table {
+  &.projects-table {
+    tr {
+      background-color: #fafafa;
+      th:nth-child(1) {
+        width: 228px;
+      }
+    }
+    tr:nth-child(4n + 1),
+    tr:nth-child(4n + 2) {
+      background-color: #fff;
+    }
+    td {
+      white-space: normal;
+      button {
+        white-space: normal;
+      }
+    }
+  }
+  &.workunits-table {
+    tr th:nth-child(1) {
+      width: 160px;
+    }
+  }
+}

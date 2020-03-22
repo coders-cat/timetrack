@@ -1,0 +1,12 @@
+.notifications {
+  z-index: 9999;
+  position: fixed;
+  left: 50%;
+  top: 3%;
+
+  .notification {
+    position: relative;
+    left: -50%;
+    transform: none;
+  }
+}
