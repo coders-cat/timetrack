@@ -35,7 +35,8 @@ const WorkUnits = ({ project, onChange }) => {
   const displayDate = time =>
     new Date(time).toLocaleString(Intl.DateTimeFormat().resolvedOptions().locale, {
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      timeStyle: 'short'
+      timeStyle: 'short',
+      dateStyle: 'short'
     });
 
   const onChangeDate = (event, data) => {

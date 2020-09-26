@@ -63,7 +63,8 @@ const DateSetting = ({ setting }) => {
     Intl.DateTimeFormat().resolvedOptions().locale,
     {
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      timeStyle: 'short'
+      timeStyle: 'short',
+      dateStyle: 'short'
     }
   );
 
