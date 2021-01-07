@@ -29,12 +29,12 @@ Alert.propTypes = {
   message: PropTypes.node.isRequired,
   dismissible: PropTypes.bool,
   timeOut: PropTypes.number,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
 };
 
 Alert.defaultProps = {
   color: 'primary',
   dismissible: false,
   timeOut: 0,
-  onClose: () => {}
+  onClose: () => {},
 };

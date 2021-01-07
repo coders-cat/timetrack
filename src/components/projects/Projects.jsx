@@ -24,15 +24,15 @@ const ProjectsTable = () => {
 
   const fetchProjects = useCallback(async () => {
     const showHidden = (await getSetting('showHidden')).value;
-    const allProjects = (await db.projects.orderBy('[client+name]').toArray()).map(async p => {
+    const allProjects = (await db.projects.orderBy('[client+name]').toArray()).map(async (p) => {
       const workUnit = (await db.workunits.get({ projectId: p.id, endTime: '' })) || {};
       return {
         ...p,
-        workUnit
+        workUnit,
       };
     });
-    Promise.all(allProjects).then(res => {
-      const toShow = showHidden ? res : res.filter(p => !p.hidden);
+    Promise.all(allProjects).then((res) => {
+      const toShow = showHidden ? res : res.filter((p) => !p.hidden);
       setProjects(toShow);
     });
   }, [setProjects, getSetting]);
@@ -41,7 +41,7 @@ const ProjectsTable = () => {
     fetchProjects();
   }, [fetchProjects]);
 
-  const edit = project => {
+  const edit = (project) => {
     clearErrors();
     setEditProject(project);
     setShowModal(true);
@@ -52,15 +52,15 @@ const ProjectsTable = () => {
     setEditProject({ client: '' });
   };
 
-  const onChange = event => {
+  const onChange = (event) => {
     event.persist();
-    setEditProject(currentProject => ({
+    setEditProject((currentProject) => ({
       ...currentProject,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     }));
   };
 
-  const saveProject = async event => {
+  const saveProject = async (event) => {
     event.preventDefault();
     try {
       if (editProject.id) {
@@ -75,7 +75,7 @@ const ProjectsTable = () => {
     cancelEdit();
   };
 
-  const toggleHidden = async prj => {
+  const toggleHidden = async (prj) => {
     try {
       await db.projects.update(prj.id, { ...prj, hidden: !prj.hidden });
     } catch (ex) {
@@ -84,7 +84,7 @@ const ProjectsTable = () => {
     fetchProjects();
   };
 
-  const removeProject = async prj => {
+  const removeProject = async (prj) => {
     try {
       await db.projects.delete(prj.id);
     } catch (ex) {
@@ -93,7 +93,7 @@ const ProjectsTable = () => {
     fetchProjects();
   };
 
-  const confirmRemove = prj =>
+  const confirmRemove = (prj) =>
     confirmAlert({
       title: 'Project Delete',
       onConfirm: () => removeProject(prj),
@@ -103,18 +103,18 @@ const ProjectsTable = () => {
           {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
           You are going to delete project <strong>{prj.name}</strong>. Are you sure?
         </>
-      )
+      ),
     });
 
   const setWorkUnit = (projectId, workUnit) => {
-    setProjects(ps => ps.map(p => ({ ...p, workUnit: p.id === projectId ? workUnit : {} })));
+    setProjects((ps) => ps.map((p) => ({ ...p, workUnit: p.id === projectId ? workUnit : {} })));
   };
 
   return (
     <Content>
       <ProjectForm
         project={editProject}
-        clients={[...new Set(projects.map(p => p.client))]}
+        clients={[...new Set(projects.map((p) => p.client))]}
         onChange={onChange}
         onSubmit={saveProject}
         show={showModal}
@@ -124,7 +124,7 @@ const ProjectsTable = () => {
         <Table className="projects-table is-hoverable is-fullwidth">
           <thead>
             <tr>
-              {colNames.map(text => (
+              {colNames.map((text) => (
                 <th key={text}>{text}</th>
               ))}
             </tr>
@@ -143,11 +143,11 @@ const ProjectsTable = () => {
             </tr>
           </tfoot>
           <tbody>
-            {projects.map(project => (
+            {projects.map((project) => (
               <Fragment key={project.id}>
                 <tr>
                   <td>
-                    <Button.Group>
+                    <Button.Group size="small">
                       <Button color="primary" onClick={() => edit(project)}>
                         Edit
                       </Button>
@@ -167,9 +167,9 @@ const ProjectsTable = () => {
                     <Button
                       text
                       onClick={() => {
-                        toggleFolded(currentFolds => ({
+                        toggleFolded((currentFolds) => ({
                           ...currentFolds,
-                          [project.id]: !currentFolds[project.id]
+                          [project.id]: !currentFolds[project.id],
                         }));
                       }}
                     >
@@ -184,7 +184,7 @@ const ProjectsTable = () => {
                       <WorkSwitch
                         projectId={project.id}
                         workUnit={project.workUnit}
-                        setWorkUnit={wu => setWorkUnit(project.id, wu)}
+                        setWorkUnit={(wu) => setWorkUnit(project.id, wu)}
                       />
                     )}
                   </td>

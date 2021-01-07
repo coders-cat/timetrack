@@ -29,20 +29,17 @@ const WorkSwitch = ({ projectId, workUnit, setWorkUnit }) => {
   const toggleStatus = async () => {
     if (workUnit.id) {
       await db.workunits.update(workUnit.id, {
-        endTime: Date.now()
+        endTime: Date.now(),
       });
       setWorkUnit({});
     } else {
       await db.transaction('rw', db.workunits, async () => {
-        await db.workunits
-          .where('endTime')
-          .equals('')
-          .modify({ endTime: Date.now() });
+        await db.workunits.where('endTime').equals('').modify({ endTime: Date.now() });
 
         const wId = await db.workunits.add({
           projectId,
           startTime: Date.now(),
-          endTime: ''
+          endTime: '',
         });
         setWorkUnit(await db.workunits.get(wId));
       });
@@ -66,7 +63,7 @@ WorkSwitch.propTypes = {
   projectId: PropTypes.number.isRequired,
   workUnit: PropTypes.shape({
     id: PropTypes.number,
-    startTime: PropTypes.number
+    startTime: PropTypes.number,
   }).isRequired,
-  setWorkUnit: PropTypes.func.isRequired
+  setWorkUnit: PropTypes.func.isRequired,
 };

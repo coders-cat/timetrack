@@ -14,21 +14,19 @@ const SettingsProvider = ({ children }) => {
     fetchSettings();
   }, []);
 
-  const updateSetting = async setting => {
+  const updateSetting = async (setting) => {
     await db.settings.update(setting.id, setting);
     setSettings(await db.settings.toArray());
   };
 
-  const getSetting = async key => {
-    return db.settings.get({ key });
-  };
+  const getSetting = async (key) => db.settings.get({ key });
 
   return (
     <SettingsContext.Provider
       value={{
         settings,
         updateSetting,
-        getSetting
+        getSetting,
       }}
     >
       {children}
@@ -41,5 +39,5 @@ const SettingsConsumer = SettingsContext.Consumer;
 export { SettingsContext, SettingsProvider, SettingsConsumer };
 
 SettingsProvider.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };

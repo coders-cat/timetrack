@@ -61,11 +61,11 @@ ProjectForm.propTypes = {
   project: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
-    client: PropTypes.string
+    client: PropTypes.string,
   }).isRequired,
   clients: PropTypes.arrayOf(PropTypes.string).isRequired,
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };

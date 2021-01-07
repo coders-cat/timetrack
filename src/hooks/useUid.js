@@ -2,11 +2,9 @@ import { useCallback } from 'react';
 
 let lastId = 1;
 
-const useUid = prefix => {
-  const shameUid = key => {
-    // eslint-disable-next-line no-plusplus
-    return `${prefix}${key}${lastId++}`;
-  };
+const useUid = (prefix) => {
+  // eslint-disable-next-line no-plusplus
+  const shameUid = (key) => `${prefix}${key}${lastId++}`;
 
   return useCallback(shameUid, [prefix]);
 };

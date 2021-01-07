@@ -20,7 +20,7 @@ const Toolbar = () => {
         >
           <img src={logo} alt="Logo coders.cat" width="163" height="69" />
         </Navbar.Item>
-        <Navbar.Burger onClick={() => setOpen(isOpen => !isOpen)} />
+        <Navbar.Burger onClick={() => setOpen((isOpen) => !isOpen)} />
       </Navbar.Brand>
       <Navbar.Menu>
         <Navbar.Container position="end">

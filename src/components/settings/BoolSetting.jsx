@@ -30,7 +30,7 @@ BoolSetting.propTypes = {
   setting: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    value: PropTypes.any,
-    type: PropTypes.string.isRequired
-  }).isRequired
+    value: PropTypes.oneOfType([PropTypes.any]),
+    type: PropTypes.string.isRequired,
+  }).isRequired,
 };

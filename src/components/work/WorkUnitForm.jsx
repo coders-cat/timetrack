@@ -8,15 +8,15 @@ const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
   }
   const { Field, Control, Input } = Form;
 
-  const getLocalDate = millis => {
+  const getLocalDate = (millis) => {
     const date = new Date(millis);
     date.setSeconds(0);
     const tzoffset = date.getTimezoneOffset() * 60000;
     return new Date(date.getTime() - tzoffset).toISOString().slice(0, -1);
   };
 
-  const localDate = millis => getLocalDate(millis).substring(0, 10);
-  const localTime = millis => getLocalDate(millis).substring(11, 16);
+  const localDate = (millis) => getLocalDate(millis).substring(0, 10);
+  const localTime = (millis) => getLocalDate(millis).substring(11, 16);
 
   const now = () => {
     const d = new Date();
@@ -116,10 +116,10 @@ WorkUnitForm.propTypes = {
     id: PropTypes.number,
     projectId: PropTypes.number,
     startTime: PropTypes.number,
-    endTime: PropTypes.number
+    endTime: PropTypes.number,
   }).isRequired,
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };

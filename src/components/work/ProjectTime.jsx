@@ -19,9 +19,10 @@ const ProjectTime = ({ project }) => {
         .between([project.id, startTime, startTime], [project.id, endTime, endTime], true, true)
         .toArray();
 
-      const total = workunits.reduce((prev, curr) => {
-        return curr.endTime ? prev + (curr.endTime - curr.startTime) : prev;
-      }, 0);
+      const total = workunits.reduce(
+        (prev, curr) => (curr.endTime ? prev + (curr.endTime - curr.startTime) : prev),
+        0
+      );
 
       setTime(total);
     };
@@ -36,6 +37,6 @@ export default ProjectTime;
 
 ProjectTime.propTypes = {
   project: PropTypes.shape({
-    id: PropTypes.number.isRequired
-  }).isRequired
+    id: PropTypes.number.isRequired,
+  }).isRequired,
 };

@@ -4,7 +4,7 @@ import ms from 'pretty-ms';
 
 const TimeFormat = ({ time, label }) => {
   const [prettyMs, prettyHours] = useMemo(() => {
-    const pad = t => String(t).padStart(2, '0');
+    const pad = (t) => String(t).padStart(2, '0');
 
     const diff = 1000 - (time % 1000);
     const t = diff < 500 ? time + diff : time;
@@ -28,9 +28,9 @@ export default TimeFormat;
 
 TimeFormat.propTypes = {
   time: PropTypes.number.isRequired,
-  label: PropTypes.string
+  label: PropTypes.string,
 };
 
 TimeFormat.defaultProps = {
-  label: undefined
+  label: undefined,
 };

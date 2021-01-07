@@ -32,20 +32,20 @@ const WorkUnits = ({ project, onChange }) => {
     fetchWorkUnits();
   }, [fetchWorkUnits]);
 
-  const displayDate = time =>
+  const displayDate = (time) =>
     new Date(time).toLocaleString(Intl.DateTimeFormat().resolvedOptions().locale, {
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       timeStyle: 'short',
-      dateStyle: 'short'
+      dateStyle: 'short',
     });
 
   const onChangeDate = (event, data) => {
     if (data) {
-      setEditWorkUnit(currWorkUnit => ({ ...currWorkUnit, [data.name]: data.value }));
+      setEditWorkUnit((currWorkUnit) => ({ ...currWorkUnit, [data.name]: data.value }));
       return;
     }
     event.persist();
-    setEditWorkUnit(currWorkUnit => {
+    setEditWorkUnit((currWorkUnit) => {
       const [propName, time] = event.target.name.split('-');
       let changed = currWorkUnit[propName];
       try {
@@ -69,7 +69,7 @@ const WorkUnits = ({ project, onChange }) => {
 
       return {
         ...currWorkUnit,
-        [propName]: changed
+        [propName]: changed,
       };
     });
   };
@@ -79,7 +79,7 @@ const WorkUnits = ({ project, onChange }) => {
     setEditWorkUnit({ projectId: project.id });
   };
 
-  const saveWorkUnit = async event => {
+  const saveWorkUnit = async (event) => {
     event.preventDefault();
     try {
       if (editWorkUnit.id) {
@@ -95,18 +95,18 @@ const WorkUnits = ({ project, onChange }) => {
     cancelEdit();
   };
 
-  const edit = workunit => {
+  const edit = (workunit) => {
     setEditWorkUnit(workunit);
     setShowModal(true);
   };
 
-  const removeWorkUnit = async workunit => {
+  const removeWorkUnit = async (workunit) => {
     await db.workunits.delete(workunit.id);
     onChange();
     fetchWorkUnits();
   };
 
-  const confirmRemove = workunit =>
+  const confirmRemove = (workunit) =>
     confirmAlert({
       title: 'WorkUnit Delete',
       onConfirm: () => removeWorkUnit(workunit),
@@ -120,10 +120,10 @@ const WorkUnits = ({ project, onChange }) => {
       <strong>${displayDate(workunit.startTime)}</strong> to
       <strong>${displayDate(workunit.endTime)}</strong>.
       Are you sure?
-      `
+      `,
           }}
         />
-      )
+      ),
     });
 
   return (
@@ -149,10 +149,10 @@ const WorkUnits = ({ project, onChange }) => {
             </tr>
           </thead>
           <tbody>
-            {workunits.map(workunit => (
+            {workunits.map((workunit) => (
               <tr key={workunit.id}>
                 <td>
-                  <Button.Group>
+                  <Button.Group size="small">
                     <Button color="primary" onClick={() => edit(workunit)}>
                       Edit
                     </Button>
@@ -179,7 +179,7 @@ export default WorkUnits;
 
 WorkUnits.propTypes = {
   project: PropTypes.shape({
-    id: PropTypes.number
+    id: PropTypes.number,
   }).isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };

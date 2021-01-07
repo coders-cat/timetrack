@@ -9,7 +9,7 @@ const Settings = () => {
 
   return (
     <Columns className="is-vcentered is-mobile is-centered">
-      {settings.map(s => (
+      {settings.map((s) => (
         <Columns.Column narrow key={s.id}>
           {{ date: <DateSetting setting={s} />, bool: <BoolSetting setting={s} /> }[s.type]}
         </Columns.Column>

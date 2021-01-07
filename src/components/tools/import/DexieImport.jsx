@@ -12,19 +12,21 @@ const DexieImport = () => {
   const { addException, clearErrors } = useContext(MessagesContext);
   const [progress, setProgress] = useState(0);
 
-  const onDrop = acceptedFiles => {
+  const onDrop = (acceptedFiles) => {
     const progressCallback = ({ totalRows, completedRows }) => {
       setProgress((completedRows / totalRows) * 100);
     };
 
-    const importDexie = async file => {
+    const importDexie = async (file) => {
       clearErrors();
       setProgress(0);
       try {
+        // eslint-disable-next-line no-console
         console.log(`Importing ${file.name}`);
         db.close();
         await db.delete();
         await importDB(file, { progressCallback });
+        // eslint-disable-next-line no-console
         console.log('Import complete');
         setProgress(0);
       } catch (ex) {
@@ -35,7 +37,7 @@ const DexieImport = () => {
       }
     };
 
-    const confirmImport = file => {
+    const confirmImport = (file) => {
       confirmAlert({
         title: 'Database Import',
         onConfirm: () => importDexie(file),
@@ -48,7 +50,7 @@ const DexieImport = () => {
             dismissible={false}
             timeOut={0}
           />
-        )
+        ),
       });
     };
 
@@ -78,7 +80,7 @@ const DexieImport = () => {
                   color: 'danger',
                   boxed: true,
                   fileName: false,
-                  style: { display: 'block' }
+                  style: { display: 'block' },
                 })}
               />
             </Control>

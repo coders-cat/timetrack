@@ -50,7 +50,7 @@ const ConfirmModal = ({ title, show, onConfirm, onClose, isFunction, message, ch
 
 export default ConfirmModal;
 
-export const confirmAlert = properties => {
+export const confirmAlert = (properties) => {
   let target = document.getElementById('tt-confirm-modal');
   if (!target) {
     target = document.createElement('div');
@@ -68,12 +68,12 @@ ConfirmModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   isFunction: PropTypes.bool,
   message: PropTypes.element,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 ConfirmModal.defaultProps = {
   show: false,
   isFunction: false,
   message: '',
-  children: undefined
+  children: undefined,
 };

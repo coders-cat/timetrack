@@ -3,17 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "bulma-switch": "^2.0.0",
     "classnames": "^2.2.6",
-    "dexie": "^2.0.4",
-    "dexie-export-import": "^1.0.0-rc.1",
-    "pretty-ms": "^6.0.1",
+    "dexie": "^3.0.3",
+    "dexie-export-import": "^1.0.0",
+    "node-sass": "^4.14.1",
+    "pretty-ms": "^7.0.1",
     "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-bulma-components": "^3.2.0",
-    "react-dom": "^16.13.0",
-    "react-dropzone": "^10.2.1",
-    "react-scripts": "^3.4.3"
+    "react": "^17.0.1",
+    "react-bulma-components": "^3.4.0",
+    "react-dom": "^17.0.1",
+    "react-dropzone": "^11.2.4",
+    "react-scripts": "^4.0.1",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,7 +39,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -37,16 +57,15 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^6.7.2",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.0",
-    "node-sass": "^4.14.1",
-    "prettier": "^1.19.1",
-    "react-test-renderer": "^16.13.0"
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
+    "react-test-renderer": "^17.0.1"
   }
 }

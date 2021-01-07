@@ -10,30 +10,31 @@ const MessagesProvider = ({ children }) => {
   const [messages, setMessages] = useState([]);
   const uid = useUid('mp');
 
-  const onClose = muid => {
-    setMessages(cur => cur.filter(m => m.uid !== muid));
+  const onClose = (muid) => {
+    setMessages((cur) => cur.filter((m) => m.uid !== muid));
   };
 
   const addMessage = useCallback(
-    m => {
-      setMessages(cur => [...cur, { ...m, uid: uid(m.message), onClose }]);
+    (m) => {
+      setMessages((cur) => [...cur, { ...m, uid: uid(m.message), onClose }]);
     },
     [uid]
   );
 
   const addException = useCallback(
-    ex => {
+    (ex) => {
+      // eslint-disable-next-line no-console
       console.error('Error', ex);
-      setMessages(cur => [
+      setMessages((cur) => [
         ...cur,
-        { color: 'danger', uid: uid(ex.message), message: ex.message, dismissible: true, onClose }
+        { color: 'danger', uid: uid(ex.message), message: ex.message, dismissible: true, onClose },
       ]);
     },
     [uid]
   );
 
   const clearErrors = useCallback(() => {
-    setMessages(cur => cur.filter(m => m.color !== 'danger'));
+    setMessages((cur) => cur.filter((m) => m.color !== 'danger'));
   }, []);
 
   return (
@@ -41,11 +42,11 @@ const MessagesProvider = ({ children }) => {
       value={{
         addMessage,
         addException,
-        clearErrors
+        clearErrors,
       }}
     >
       <MessagesContainer show={messages.length > 0}>
-        {messages.map(m => (
+        {messages.map((m) => (
           <Alert
             key={m.uid}
             // eslint-disable-next-line react/jsx-props-no-spreading
@@ -63,5 +64,5 @@ const MessagesConsumer = MessagesContext.Consumer;
 export { MessagesContext, MessagesProvider, MessagesConsumer };
 
 MessagesProvider.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };

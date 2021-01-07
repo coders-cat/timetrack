@@ -18,15 +18,15 @@ const DateSetting = ({ setting }) => {
     setShow(false);
   };
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
     updateSetting({ ...setting, value: date });
     setShow(false);
   };
 
-  const onChangeDate = event => {
+  const onChangeDate = (event) => {
     event.persist();
-    setDate(currDate => {
+    setDate((currDate) => {
       try {
         const d = new Date(event.target.value);
         d.setHours(currDate.getHours());
@@ -38,10 +38,10 @@ const DateSetting = ({ setting }) => {
     });
   };
 
-  const onChangeTime = event => {
+  const onChangeTime = (event) => {
     event.persist();
     const [hours, minutes] = event.target.value.split(':');
-    setDate(currDate => {
+    setDate((currDate) => {
       try {
         const d = new Date(currDate);
         d.setHours(hours);
@@ -64,7 +64,7 @@ const DateSetting = ({ setting }) => {
     {
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       timeStyle: 'short',
-      dateStyle: 'short'
+      dateStyle: 'short',
     }
   );
 
@@ -148,7 +148,7 @@ DateSetting.propTypes = {
   setting: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    value: PropTypes.any,
-    type: PropTypes.string.isRequired
-  }).isRequired
+    value: PropTypes.oneOfType([PropTypes.any]),
+    type: PropTypes.string.isRequired,
+  }).isRequired,
 };
