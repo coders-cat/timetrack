@@ -58,8 +58,8 @@ const WorkUnits = ({ project, onChange }) => {
         } else {
           const d = new Date(event.target.value);
           const currDate = new Date(currWorkUnit[propName]);
-          d.setUTCHours(currDate.getUTCHours());
-          d.setUTCMinutes(currDate.getUTCMinutes());
+          d.setHours(currDate.getHours());
+          d.setMinutes(currDate.getMinutes());
           changed = d.getTime();
         }
         // eslint-disable-next-line no-empty

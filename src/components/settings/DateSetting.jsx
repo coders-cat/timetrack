@@ -29,8 +29,8 @@ const DateSetting = ({ setting }) => {
     setDate(currDate => {
       try {
         const d = new Date(event.target.value);
-        d.setUTCHours(currDate.getUTCHours());
-        d.setUTCMinutes(currDate.getUTCMinutes());
+        d.setHours(currDate.getHours());
+        d.setMinutes(currDate.getMinutes());
         return d;
       } catch (shht) {
         return currDate;
