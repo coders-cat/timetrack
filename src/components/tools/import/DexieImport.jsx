@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
+import { Form, Icon, Progress } from 'react-bulma-components';
+import { useContext, useState } from 'react';
+
+import Alert from 'components/notification/Alert';
+import { MessagesContext } from 'components/notification/MessagesContext';
+import { confirmAlert } from 'components/modal/ConfirmModal';
+import db from 'db/db';
 import { importDB } from 'dexie-export-import';
 import { useDropzone } from 'react-dropzone';
-import { Progress, Form, Icon } from 'react-bulma-components';
-import { confirmAlert } from '../../modal/ConfirmModal';
-import { MessagesContext } from '../../notification/MessagesContext';
-import Alert from '../../notification/Alert';
-
-import db from '../../../db/db';
 
 const DexieImport = () => {
   const { addException, clearErrors } = useContext(MessagesContext);
@@ -60,6 +60,24 @@ const DexieImport = () => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
+  const inputProps = getInputProps({
+    icon: (
+      <Icon>
+        <i className="rbc rbc-upload"></i>
+      </Icon>
+    ),
+    label: isDragActive
+      ? 'Drop the files here ...'
+      : 'Drag`n drop some file here, or click to select file to import',
+    placeholder: 'Textarea',
+    color: 'danger',
+    boxed: true,
+    style: { display: 'block' },
+  });
+
+  inputProps.domRef = inputProps.ref;
+  delete inputProps.ref;
+
   const { Field, Control, InputFile } = Form;
 
   return (
@@ -71,20 +89,17 @@ const DexieImport = () => {
             <Control>
               <InputFile
                 // eslint-disable-next-line react/jsx-props-no-spreading
-                {...getInputProps({
-                  icon: <Icon icon="upload" />,
-                  label: isDragActive
-                    ? 'Drop the files here ...'
-                    : 'Drag`n drop some file here, or click to select file to import',
-                  placeholder: 'Textarea',
-                  color: 'danger',
-                  boxed: true,
-                  fileName: false,
-                  style: { display: 'block' },
-                })}
+                {...inputProps}
               />
             </Control>
-            {progress > 0 && <Progress max={100} value={progress} color="primary" size="small" />}
+            {progress > 0 && (
+              <Progress
+                max={100}
+                value={progress}
+                color="primary"
+                size="small"
+              />
+            )}
           </Field>
         </form>
       </div>

@@ -1,9 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { Button, Content, Form, Modal } from 'react-bulma-components';
 import { render, unmountComponentAtNode } from 'react-dom';
-import { Modal, Content, Button, Form } from 'react-bulma-components';
 
-const ConfirmModal = ({ title, show, onConfirm, onClose, isFunction, message, children }) => {
+import PropTypes from 'prop-types';
+
+const ConfirmModal = ({
+  title,
+  show,
+  onConfirm,
+  onClose,
+  isFunction,
+  message,
+  children,
+}) => {
   const unmountConfirmModal = () => {
     if (isFunction) {
       const target = document.getElementById('tt-confirm-modal');
@@ -23,7 +31,11 @@ const ConfirmModal = ({ title, show, onConfirm, onClose, isFunction, message, ch
   };
 
   return (
-    <Modal show={isFunction || show} onClose={handleClose} modal={{ closeOnBlur: true }}>
+    <Modal
+      show={isFunction || show}
+      onClose={handleClose}
+      modal={{ closeOnBlur: true }}
+    >
       <Modal.Card>
         <Modal.Card.Head onClose={handleClose}>
           <Modal.Card.Title>{title}</Modal.Card.Title>

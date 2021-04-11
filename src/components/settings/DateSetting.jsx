@@ -1,6 +1,7 @@
-import React, { useState, useContext } from 'react';
+import { Button, Columns, Content, Form, Modal } from 'react-bulma-components';
+import { useContext, useState } from 'react';
+
 import PropTypes from 'prop-types';
-import { Columns, Modal, Content, Button, Form } from 'react-bulma-components';
 import { SettingsContext } from './SettingsContext';
 
 const DateSetting = ({ setting }) => {
@@ -114,7 +115,11 @@ const DateSetting = ({ setting }) => {
                     />
                   </Control>
                   <Control>
-                    <Button color="primary" type="button" onClick={() => setDate(now())}>
+                    <Button
+                      color="primary"
+                      type="button"
+                      onClick={() => setDate(now())}
+                    >
                       Now
                     </Button>
                   </Control>

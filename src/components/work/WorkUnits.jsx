@@ -1,13 +1,13 @@
-import React, { useCallback, useContext, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Content, Button, Table } from 'react-bulma-components';
-import { SettingsContext } from '../settings/SettingsContext';
-import { confirmAlert } from '../modal/ConfirmModal';
-import WorkUnitForm from './WorkUnitForm';
-import TimeFormat from './TimeFormat';
-import { MessagesContext } from '../notification/MessagesContext';
+import { Button, Content, Table } from 'react-bulma-components';
+import { useCallback, useContext, useEffect, useState } from 'react';
 
-import db from '../../db/db';
+import { MessagesContext } from 'components/notification/MessagesContext';
+import PropTypes from 'prop-types';
+import { SettingsContext } from 'components/settings/SettingsContext';
+import TimeFormat from './TimeFormat';
+import WorkUnitForm from './WorkUnitForm';
+import { confirmAlert } from 'components/modal/ConfirmModal';
+import db from 'db/db';
 
 const WorkUnits = ({ project, onChange }) => {
   const { addException } = useContext(MessagesContext);
@@ -23,7 +23,12 @@ const WorkUnits = ({ project, onChange }) => {
     setWorkUnits(
       await db.workunits
         .where('[projectId+startTime+endTime]')
-        .between([project.id, startTime, startTime], [project.id, endTime, endTime], true, true)
+        .between(
+          [project.id, startTime, startTime],
+          [project.id, endTime, endTime],
+          true,
+          true
+        )
         .toArray()
     );
   }, [project, getSetting, setWorkUnits]);
@@ -33,15 +38,21 @@ const WorkUnits = ({ project, onChange }) => {
   }, [fetchWorkUnits]);
 
   const displayDate = (time) =>
-    new Date(time).toLocaleString(Intl.DateTimeFormat().resolvedOptions().locale, {
-      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      timeStyle: 'short',
-      dateStyle: 'short',
-    });
+    new Date(time).toLocaleString(
+      Intl.DateTimeFormat().resolvedOptions().locale,
+      {
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        timeStyle: 'short',
+        dateStyle: 'short',
+      }
+    );
 
   const onChangeDate = (event, data) => {
     if (data) {
-      setEditWorkUnit((currWorkUnit) => ({ ...currWorkUnit, [data.name]: data.value }));
+      setEditWorkUnit((currWorkUnit) => ({
+        ...currWorkUnit,
+        [data.name]: data.value,
+      }));
       return;
     }
     event.persist();
@@ -156,7 +167,10 @@ const WorkUnits = ({ project, onChange }) => {
                     <Button color="primary" onClick={() => edit(workunit)}>
                       Edit
                     </Button>
-                    <Button className="is-danger" onClick={() => confirmRemove(workunit)}>
+                    <Button
+                      className="is-danger"
+                      onClick={() => confirmRemove(workunit)}
+                    >
                       Delete
                     </Button>
                   </Button.Group>
@@ -164,7 +178,9 @@ const WorkUnits = ({ project, onChange }) => {
                 <td>{displayDate(workunit.startTime)}</td>
                 <td>{workunit.endTime && displayDate(workunit.endTime)}</td>
                 <td>
-                  {workunit.endTime && <TimeFormat time={workunit.endTime - workunit.startTime} />}
+                  {workunit.endTime && (
+                    <TimeFormat time={workunit.endTime - workunit.startTime} />
+                  )}
                 </td>
               </tr>
             ))}

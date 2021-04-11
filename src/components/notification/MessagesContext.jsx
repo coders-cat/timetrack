@@ -1,8 +1,9 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
+import React, { useCallback, useState } from 'react';
+
 import Alert from './Alert';
 import MessagesContainer from './MessagesContainer';
-import useUid from '../../hooks/useUid';
+import PropTypes from 'prop-types';
+import useUid from 'hooks/useUid';
 
 const MessagesContext = React.createContext();
 
@@ -27,7 +28,13 @@ const MessagesProvider = ({ children }) => {
       console.error('Error', ex);
       setMessages((cur) => [
         ...cur,
-        { color: 'danger', uid: uid(ex.message), message: ex.message, dismissible: true, onClose },
+        {
+          color: 'danger',
+          uid: uid(ex.message),
+          message: ex.message,
+          dismissible: true,
+          onClose,
+        },
       ]);
     },
     [uid]

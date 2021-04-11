@@ -1,9 +1,9 @@
-import React, { useState, useRef, useContext } from 'react';
-import { exportDB } from 'dexie-export-import';
-import { Form, Button, Progress } from 'react-bulma-components';
-import { MessagesContext } from '../../notification/MessagesContext';
+import { Button, Form, Progress } from 'react-bulma-components';
+import { useContext, useRef, useState } from 'react';
 
-import db from '../../../db/db';
+import { MessagesContext } from 'components/notification/MessagesContext';
+import db from 'db/db';
+import { exportDB } from 'dexie-export-import';
 
 const DexieExport = () => {
   const { addException, clearErrors } = useContext(MessagesContext);
@@ -36,8 +36,15 @@ const DexieExport = () => {
         <Button color="primary" onClick={exportDexie}>
           Export
         </Button>
-        {progress > 0 && <Progress max={100} value={progress} color="primary" size="small" />}
-        <a ref={linkRef} download="dexie-export.json" href={url} className="is-hidden">
+        {progress > 0 && (
+          <Progress max={100} value={progress} color="primary" size="small" />
+        )}
+        <a
+          ref={linkRef}
+          download="dexie-export.json"
+          href={url}
+          className="is-hidden"
+        >
           download
         </a>
       </Control>

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Modal, Button, Form } from 'react-bulma-components';
+import { Button, Form, Modal } from 'react-bulma-components';
+
 import About from './About';
+import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
 const AboutModal = () => {

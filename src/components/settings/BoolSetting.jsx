@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import { Button, Columns, Form } from 'react-bulma-components';
+
 import PropTypes from 'prop-types';
-import { Columns, Button, Form } from 'react-bulma-components';
 import { SettingsContext } from './SettingsContext';
+import { useContext } from 'react';
 
 const BoolSetting = ({ setting }) => {
   const { updateSetting } = useContext(SettingsContext);
@@ -14,7 +15,11 @@ const BoolSetting = ({ setting }) => {
     <Columns className="is-centered is-vcentered is-mobile" gapless>
       <Columns.Column narrow>
         <Form.Control>
-          <Button color={setting.value ? 'success' : 'warning'} size="small" onClick={toggle}>
+          <Button
+            color={setting.value ? 'success' : 'warning'}
+            size="small"
+            onClick={toggle}
+          >
             <span>{setting.name}</span>
             <span>{setting.value ? '? Yes' : '? No'}</span>
           </Button>

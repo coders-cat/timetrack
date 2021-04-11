@@ -1,18 +1,15 @@
 @charset "utf-8";
 @import 'variables';
 
-// Import only what you need from Bulma
-@import '~bulma/sass/utilities/_all.sass';
-@import '~bulma/sass/base/_all.sass';
+// @TODO Import only what you need from Bulma
+@import '~bulma/bulma.sass';
 
 // Import some bulma extensions
 @import '~bulma-switch/src/sass/index.sass';
-
-// Import react-bulma-components
-@import '~react-bulma-components/dist/react-bulma-components.min.css';
 
 // Import custom elements
 @import 'helpers';
 @import 'logo';
 @import 'messages';
 @import 'tables';
+@import 'icons';

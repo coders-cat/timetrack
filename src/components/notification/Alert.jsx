@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Button, Notification } from 'react-bulma-components';
+
+import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 const Alert = ({ color, uid, message, dismissible, timeOut, onClose }) => {
   useEffect(() => {
@@ -24,7 +25,14 @@ const Alert = ({ color, uid, message, dismissible, timeOut, onClose }) => {
 export default Alert;
 
 Alert.propTypes = {
-  color: PropTypes.oneOf(['primary', 'link', 'info', 'success', 'warning', 'danger']),
+  color: PropTypes.oneOf([
+    'primary',
+    'link',
+    'info',
+    'success',
+    'warning',
+    'danger',
+  ]),
   uid: PropTypes.string.isRequired,
   message: PropTypes.node.isRequired,
   dismissible: PropTypes.bool,

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import PropTypes from 'prop-types';
-import db from '../../db/db';
+import db from 'db/db';
 
 const SettingsContext = React.createContext();
 

@@ -1,9 +1,10 @@
-/* eslint-disable react/jsx-filename-extension */
+import './scss/index.scss';
+
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './scss/index.scss';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

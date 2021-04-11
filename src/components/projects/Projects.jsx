@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useCallback, Fragment, useContext } from 'react';
-import { Table, Form, Button, Content } from 'react-bulma-components';
-import classNames from 'classnames';
-import { SettingsContext } from '../settings/SettingsContext';
-import { MessagesContext } from '../notification/MessagesContext';
-import ProjectForm from './ProjectForm';
-import { confirmAlert } from '../modal/ConfirmModal';
-import WorkSwitch from '../work/WorkSwitch';
-import ProjectTime from '../work/ProjectTime';
-import WorkUnits from '../work/WorkUnits';
+import { Button, Content, Form, Table } from 'react-bulma-components';
+import { Fragment, useCallback, useContext, useEffect, useState } from 'react';
 
-import db from '../../db/db';
+import { MessagesContext } from 'components/notification/MessagesContext';
+import ProjectForm from './ProjectForm';
+import ProjectTime from 'components/work/ProjectTime';
+import { SettingsContext } from 'components/settings/SettingsContext';
+import WorkSwitch from 'components/work/WorkSwitch';
+import WorkUnits from 'components/work/WorkUnits';
+import classNames from 'classnames';
+import { confirmAlert } from 'components/modal/ConfirmModal';
+import db from 'db/db';
 
 const ProjectsTable = () => {
   const { getSetting } = useContext(SettingsContext);
@@ -24,8 +24,11 @@ const ProjectsTable = () => {
 
   const fetchProjects = useCallback(async () => {
     const showHidden = (await getSetting('showHidden')).value;
-    const allProjects = (await db.projects.orderBy('[client+name]').toArray()).map(async (p) => {
-      const workUnit = (await db.workunits.get({ projectId: p.id, endTime: '' })) || {};
+    const allProjects = (
+      await db.projects.orderBy('[client+name]').toArray()
+    ).map(async (p) => {
+      const workUnit =
+        (await db.workunits.get({ projectId: p.id, endTime: '' })) || {};
       return {
         ...p,
         workUnit,
@@ -101,13 +104,16 @@ const ProjectsTable = () => {
       message: (
         <>
           {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-          You are going to delete project <strong>{prj.name}</strong>. Are you sure?
+          You are going to delete project <strong>{prj.name}</strong>. Are you
+          sure?
         </>
       ),
     });
 
   const setWorkUnit = (projectId, workUnit) => {
-    setProjects((ps) => ps.map((p) => ({ ...p, workUnit: p.id === projectId ? workUnit : {} })));
+    setProjects((ps) =>
+      ps.map((p) => ({ ...p, workUnit: p.id === projectId ? workUnit : {} }))
+    );
   };
 
   return (
@@ -157,7 +163,10 @@ const ProjectsTable = () => {
                       >
                         {project.hidden ? 'Show' : 'Hide'}
                       </Button>
-                      <Button color="danger" onClick={() => confirmRemove(project)}>
+                      <Button
+                        color="danger"
+                        onClick={() => confirmRemove(project)}
+                      >
                         Delete
                       </Button>
                     </Button.Group>
@@ -192,7 +201,9 @@ const ProjectsTable = () => {
                 <tr className={classNames({ 'is-hidden': !folds[project.id] })}>
                   <td />
                   <td colSpan="4">
-                    {folds[project.id] && <WorkUnits project={project} onChange={fetchProjects} />}
+                    {folds[project.id] && (
+                      <WorkUnits project={project} onChange={fetchProjects} />
+                    )}
                   </td>
                 </tr>
               </Fragment>

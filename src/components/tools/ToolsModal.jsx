@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Modal, Content, Button, Form } from 'react-bulma-components';
+import { Button, Content, Form, Modal } from 'react-bulma-components';
+
 import DexieExport from './export/DexieExport';
 import DexieImport from './import/DexieImport';
+import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
 const ToolsModal = () => {

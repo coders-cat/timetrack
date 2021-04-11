@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import AboutModal from 'components/about/AboutModal';
 import { Navbar } from 'react-bulma-components';
+import ToolsModal from 'components/tools/ToolsModal';
 import logo from './logo.svg';
 import octocat from './octocat.png';
-import ToolsModal from '../tools/ToolsModal';
-import AboutModal from '../about/AboutModal';
+import { useState } from 'react';
 
 const Toolbar = () => {
   const [open, setOpen] = useState(false);

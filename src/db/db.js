@@ -10,7 +10,12 @@ db.version(1).stores({
 });
 
 db.on('populate', () => {
-  db.settings.add({ key: 'startDate', name: 'Start Date', value: new Date(), type: 'date' });
+  db.settings.add({
+    key: 'startDate',
+    name: 'Start Date',
+    value: new Date(),
+    type: 'date',
+  });
   db.settings.add({
     key: 'endDate',
     name: 'End date',
@@ -21,7 +26,12 @@ db.on('populate', () => {
     })(),
     type: 'date',
   });
-  db.settings.add({ key: 'showHidden', name: 'Show hidden', value: false, type: 'bool' });
+  db.settings.add({
+    key: 'showHidden',
+    name: 'Show hidden',
+    value: false,
+    type: 'bool',
+  });
 });
 
 export default db;

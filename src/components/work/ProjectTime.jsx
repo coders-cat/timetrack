@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
-import { SettingsContext } from '../settings/SettingsContext';
-import TimeFormat from './TimeFormat';
+import { useContext, useEffect, useState } from 'react';
 
-import db from '../../db/db';
+import PropTypes from 'prop-types';
+import { SettingsContext } from 'components/settings/SettingsContext';
+import TimeFormat from './TimeFormat';
+import db from 'db/db';
 
 const ProjectTime = ({ project }) => {
   const { getSetting } = useContext(SettingsContext);
@@ -16,11 +16,17 @@ const ProjectTime = ({ project }) => {
 
       const workunits = await db.workunits
         .where('[projectId+startTime+endTime]')
-        .between([project.id, startTime, startTime], [project.id, endTime, endTime], true, true)
+        .between(
+          [project.id, startTime, startTime],
+          [project.id, endTime, endTime],
+          true,
+          true
+        )
         .toArray();
 
       const total = workunits.reduce(
-        (prev, curr) => (curr.endTime ? prev + (curr.endTime - curr.startTime) : prev),
+        (prev, curr) =>
+          curr.endTime ? prev + (curr.endTime - curr.startTime) : prev,
         0
       );
 

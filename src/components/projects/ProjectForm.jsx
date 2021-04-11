@@ -1,9 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Form, Button, Modal, Content } from 'react-bulma-components';
-import Datalist from '../forms/Datalist';
+import { Button, Content, Form, Modal } from 'react-bulma-components';
 
-const ProjectForm = ({ project, clients, show, onClose, onChange, onSubmit }) => {
+import Datalist from 'components/forms/Datalist';
+import PropTypes from 'prop-types';
+
+const ProjectForm = ({
+  project,
+  clients,
+  show,
+  onClose,
+  onChange,
+  onSubmit,
+}) => {
   const { Field, Control, Input } = Form;
 
   return (

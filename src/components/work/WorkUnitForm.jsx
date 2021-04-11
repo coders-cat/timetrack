@@ -1,6 +1,6 @@
-import React from 'react';
+import { Button, Content, Form, Modal } from 'react-bulma-components';
+
 import PropTypes from 'prop-types';
-import { Form, Button, Modal, Content } from 'react-bulma-components';
 
 const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
   if (!show) {
@@ -57,7 +57,11 @@ const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
                   />
                 </Control>
                 <Control>
-                  <Button color="primary" type="button" onClick={() => setDate('startTime', now())}>
+                  <Button
+                    color="primary"
+                    type="button"
+                    onClick={() => setDate('startTime', now())}
+                  >
                     Now
                   </Button>
                 </Control>
@@ -84,7 +88,11 @@ const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
                   />
                 </Control>
                 <Control>
-                  <Button color="primary" type="button" onClick={() => setDate('endTime', now())}>
+                  <Button
+                    color="primary"
+                    type="button"
+                    onClick={() => setDate('endTime', now())}
+                  >
                     Now
                   </Button>
                 </Control>

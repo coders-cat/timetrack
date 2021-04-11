@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import BulmaSwitch from '../bulma/BulmaSwitch';
-import TimeFormat from './TimeFormat';
+import { useEffect, useRef, useState } from 'react';
 
-import db from '../../db/db';
+import BulmaSwitch from 'components/bulma/BulmaSwitch';
+import PropTypes from 'prop-types';
+import TimeFormat from './TimeFormat';
+import db from 'db/db';
 
 const WorkSwitch = ({ projectId, workUnit, setWorkUnit }) => {
   const [checked, setChecked] = useState(false);
@@ -14,7 +14,9 @@ const WorkSwitch = ({ projectId, workUnit, setWorkUnit }) => {
     if (workUnit.id) {
       setLabel(<TimeFormat time={0} label="Elapsed" />);
       timerRef.current = setInterval(() => {
-        setLabel(<TimeFormat time={Date.now() - workUnit.startTime} label="Elapsed" />);
+        setLabel(
+          <TimeFormat time={Date.now() - workUnit.startTime} label="Elapsed" />
+        );
       }, 1000);
       setChecked(true);
     }
@@ -34,7 +36,10 @@ const WorkSwitch = ({ projectId, workUnit, setWorkUnit }) => {
       setWorkUnit({});
     } else {
       await db.transaction('rw', db.workunits, async () => {
-        await db.workunits.where('endTime').equals('').modify({ endTime: Date.now() });
+        await db.workunits
+          .where('endTime')
+          .equals('')
+          .modify({ endTime: Date.now() });
 
         const wId = await db.workunits.add({
           projectId,

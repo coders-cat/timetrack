@@ -1,6 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { Form } from 'react-bulma-components';
+import PropTypes from 'prop-types';
 
 const Datalist = ({ items, name, value, required, onChange }) => (
   <>
