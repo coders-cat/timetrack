@@ -1,9 +1,9 @@
 import { Container, Content } from 'react-bulma-components';
 
+import InfoSettingsBar from 'components/toolbar/InfoSettingsBar';
 import { MessagesProvider } from 'components/notification/MessagesContext';
 import PageFooter from 'components/footer/PageFooter';
 import Projects from 'components/projects/Projects';
-import Settings from 'components/settings/Settings';
 import { SettingsProvider } from 'components/settings/SettingsContext';
 import Toolbar from 'components/toolbar/Toolbar';
 
@@ -15,7 +15,7 @@ function App() {
           <MessagesProvider>
             <SettingsProvider>
               <Toolbar />
-              <Settings />
+              <InfoSettingsBar />
               <Projects />
             </SettingsProvider>
           </MessagesProvider>

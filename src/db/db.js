@@ -9,6 +9,12 @@ db.version(1).stores({
     '++id, projectId, startTime, endTime, [projectId+endTime], [projectId+startTime+endTime]',
 });
 
+// New index [startTime+endTime] for query today time
+db.version(2).stores({
+  workunits:
+    '++id, projectId, startTime, endTime, [startTime+endTime], [projectId+endTime], [projectId+startTime+endTime]',
+});
+
 db.on('populate', () => {
   db.settings.add({
     key: 'startDate',
