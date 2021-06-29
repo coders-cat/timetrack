@@ -3,11 +3,14 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true,
+    es2021: true,
   },
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     parser: 'babel-eslint',
-    ecmaVersion: 2020,
+    ecmaVersion: 12,
     sourceType: 'module',
   },
   extends: [
@@ -15,7 +18,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: [],
+  plugins: ['react', 'prettier'],
   // add your custom rules here
   rules: {
     'react/prop-types': 1,
