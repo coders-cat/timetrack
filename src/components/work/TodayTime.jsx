@@ -29,15 +29,10 @@ const TodayTime = () => {
         59
       ).getTime();
 
-      console.log('startTime', startTime);
-      console.log('endTime', endTime);
-
       const workunits = await db.workunits
         .where('[startTime+endTime]')
         .between([startTime, startTime], [endTime, endTime], true, true)
         .toArray();
-
-      console.log('workunits', workunits);
 
       const total = workunits.reduce(
         (prev, curr) =>
@@ -50,17 +45,12 @@ const TodayTime = () => {
         .equals('')
         .toArray();
 
-      console.log('running', runningWorkunits);
-
       const running = runningWorkunits.reduce(
         (prev, curr) => prev + (Date.now() - curr.startTime),
         0
       );
 
       setTime(total + running);
-
-      console.log('total', total);
-      console.log('running', running);
     };
 
     clearInterval(timerRef.current);
