@@ -12,7 +12,7 @@ const BoolSetting = ({ setting }) => {
   };
 
   return (
-    <Columns className="is-centered is-vcentered is-mobile" gapless>
+    <Columns className="is-centered is-vcentered is-mobile" gap={0}>
       <Columns.Column narrow>
         <Form.Control>
           <Button

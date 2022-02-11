@@ -23,7 +23,7 @@ const Toolbar = () => {
         <Navbar.Burger onClick={() => setOpen((isOpen) => !isOpen)} />
       </Navbar.Brand>
       <Navbar.Menu>
-        <Navbar.Container position="end">
+        <Navbar.Container align="right">
           <Navbar.Item renderAs="span">
             <ToolsModal />
           </Navbar.Item>

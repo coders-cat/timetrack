@@ -14,7 +14,7 @@ import db from 'db/db';
 const ProjectsTable = () => {
   const { getSetting } = useContext(SettingsContext);
   const { addException, clearErrors } = useContext(MessagesContext);
-  const [editProject, setEditProject] = useState({ client: '' });
+  const [editProject, setEditProject] = useState({ client: '', name: '' });
   const [projects, setProjects] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [folds, toggleFolded] = useState({});
@@ -52,7 +52,7 @@ const ProjectsTable = () => {
 
   const cancelEdit = () => {
     setShowModal(false);
-    setEditProject({ client: '' });
+    setEditProject({ client: '', name: '' });
   };
 
   const onChange = (event) => {
@@ -140,7 +140,10 @@ const ProjectsTable = () => {
               <th colSpan="6">
                 <Field kind="group">
                   <Control>
-                    <Button color="info" onClick={() => edit({ client: '' })}>
+                    <Button
+                      color="info"
+                      onClick={() => edit({ client: '', name: '' })}
+                    >
                       Add Project
                     </Button>
                   </Control>

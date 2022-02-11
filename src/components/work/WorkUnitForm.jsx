@@ -31,9 +31,9 @@ const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
   return (
     <Modal show={show} onClose={onClose} closeOnBlur>
       <Modal.Card className="is-unclipped">
-        <Modal.Card.Head showClose={false}>
+        <Modal.Card.Header showClose={false}>
           <Modal.Card.Title>Work Unit</Modal.Card.Title>
-        </Modal.Card.Head>
+        </Modal.Card.Header>
         <form onSubmit={onSubmit}>
           <Modal.Card.Body className="is-unclipped">
             <Content>
@@ -99,7 +99,7 @@ const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
               </Field>
             </Content>
           </Modal.Card.Body>
-          <Modal.Card.Foot>
+          <Modal.Card.Footer>
             <Field kind="group">
               <Control>
                 <Button submit color="info">
@@ -110,7 +110,7 @@ const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
                 </Button>
               </Control>
             </Field>
-          </Modal.Card.Foot>
+          </Modal.Card.Footer>
         </form>
       </Modal.Card>
     </Modal>

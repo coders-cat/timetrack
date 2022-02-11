@@ -76,7 +76,7 @@ const DateSetting = ({ setting }) => {
 
   return (
     <>
-      <Columns className="is-mobile is-vcentered is-centered" gapless>
+      <Columns className="is-mobile is-vcentered is-centered" gap={0}>
         <Columns.Column narrow>
           <strong>{`${setting.name}: `}</strong>
           {displayDate}
@@ -90,9 +90,9 @@ const DateSetting = ({ setting }) => {
       <Modal show={show} onClose={onClose}>
         <form onSubmit={onSubmit}>
           <Modal.Card className="is-unclipped">
-            <Modal.Card.Head onClose={onClose}>
+            <Modal.Card.Header onClose={onClose}>
               <Modal.Card.Title>{setting.name}</Modal.Card.Title>
-            </Modal.Card.Head>
+            </Modal.Card.Header>
             <Modal.Card.Body className="is-unclipped">
               <Content>
                 <Field kind="group">
@@ -126,7 +126,7 @@ const DateSetting = ({ setting }) => {
                 </Field>
               </Content>
             </Modal.Card.Body>
-            <Modal.Card.Foot>
+            <Modal.Card.Footer>
               <Field kind="group">
                 <Control>
                   <Button submit color="info">
@@ -139,7 +139,7 @@ const DateSetting = ({ setting }) => {
                   </Button>
                 </Control>
               </Field>
-            </Modal.Card.Foot>
+            </Modal.Card.Footer>
           </Modal.Card>
         </form>
       </Modal>

@@ -37,13 +37,13 @@ const ConfirmModal = ({
       modal={{ closeOnBlur: true }}
     >
       <Modal.Card>
-        <Modal.Card.Head onClose={handleClose}>
+        <Modal.Card.Header onClose={handleClose}>
           <Modal.Card.Title>{title}</Modal.Card.Title>
-        </Modal.Card.Head>
+        </Modal.Card.Header>
         <Modal.Card.Body>
           <Content>{children || message}</Content>
         </Modal.Card.Body>
-        <Modal.Card.Foot>
+        <Modal.Card.Footer>
           <Form.Field kind="group">
             <Form.Control>
               <Button color="primary" onClick={handleConfirm}>
@@ -54,7 +54,7 @@ const ConfirmModal = ({
               </Button>
             </Form.Control>
           </Form.Field>
-        </Modal.Card.Foot>
+        </Modal.Card.Footer>
       </Modal.Card>
     </Modal>
   );

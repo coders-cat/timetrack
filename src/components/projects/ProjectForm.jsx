@@ -16,9 +16,9 @@ const ProjectForm = ({
   return (
     <Modal show={show} onClose={onClose} closeOnBlur>
       <Modal.Card className="is-unclipped">
-        <Modal.Card.Head showClose={false}>
+        <Modal.Card.Header showClose={false}>
           <Modal.Card.Title>Project</Modal.Card.Title>
-        </Modal.Card.Head>
+        </Modal.Card.Header>
         <form onSubmit={onSubmit} autoComplete="off">
           <Modal.Card.Body className="is-unclipped">
             <Content>
@@ -44,7 +44,7 @@ const ProjectForm = ({
               </Field>
             </Content>
           </Modal.Card.Body>
-          <Modal.Card.Foot>
+          <Modal.Card.Footer>
             <Field kind="group">
               <Control>
                 <Button submit color="info">
@@ -55,7 +55,7 @@ const ProjectForm = ({
                 </Button>
               </Control>
             </Field>
-          </Modal.Card.Foot>
+          </Modal.Card.Footer>
         </form>
       </Modal.Card>
     </Modal>

@@ -18,13 +18,13 @@ const AboutModal = () => {
       </Button>
       <Modal show={open} onClose={onClose} modal={{ closeOnBlur: true }}>
         <Modal.Card className="is-about">
-          <Modal.Card.Head onClose={onClose}>
+          <Modal.Card.Header onClose={onClose}>
             <Modal.Card.Title>About</Modal.Card.Title>
-          </Modal.Card.Head>
+          </Modal.Card.Header>
           <Modal.Card.Body>
             <About />
           </Modal.Card.Body>
-          <Modal.Card.Foot>
+          <Modal.Card.Footer>
             <Form.Field>
               <Form.Control>
                 <Button color="info" onClick={onClose}>
@@ -32,7 +32,7 @@ const AboutModal = () => {
                 </Button>
               </Form.Control>
             </Form.Field>
-          </Modal.Card.Foot>
+          </Modal.Card.Footer>
         </Modal.Card>
       </Modal>
     </>
