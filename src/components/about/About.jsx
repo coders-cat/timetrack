@@ -46,15 +46,15 @@ const About = () => (
       to stop at the end of the day...
     </p>
     <p>
-      The source code of this project is released under the{' '}
+      The source code of this project is released under the&nbsp;
       <a
         href="https://www.gnu.org/licenses/gpl-3.0.txt"
         target="_blank"
         rel="noopener noreferrer"
       >
         GPLv3
-      </a>{' '}
-      license and you can access it here:{' '}
+      </a>
+      &nbsp;license and you can access it here:&nbsp;
       <a
         href="https://github.com/coders-cat/timetrack"
         rel="noopener noreferrer"

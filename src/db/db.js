@@ -22,6 +22,7 @@ db.on('populate', () => {
     value: new Date(),
     type: 'date',
   });
+
   db.settings.add({
     key: 'endDate',
     name: 'End date',
@@ -32,6 +33,7 @@ db.on('populate', () => {
     })(),
     type: 'date',
   });
+
   db.settings.add({
     key: 'showHidden',
     name: 'Show hidden',

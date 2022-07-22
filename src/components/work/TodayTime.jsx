@@ -120,9 +120,9 @@ const TodayTime = () => {
   }).format(today);
 
   return (
-    <>
+    <span>
       Total on {displayDate}: <TimeFormat time={time} />
-    </>
+    </span>
   );
 };
 

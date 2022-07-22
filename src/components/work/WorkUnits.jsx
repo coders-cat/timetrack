@@ -55,7 +55,9 @@ const WorkUnits = ({ project, onChange }) => {
       }));
       return;
     }
+
     event.persist();
+
     setEditWorkUnit((currWorkUnit) => {
       const [propName, time] = event.target.name.split('-');
       let changed = currWorkUnit[propName];
