@@ -6,13 +6,13 @@
     },
     "editor.suggest.insertMode": "replace"
   },
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   // turn it off for JS and JSX, we will do this via eslint
   "[javascript]": {
-      "editor.formatOnSave": false
+      "editor.formatOnSave": true
   },
   "[javascriptreact]": {
-      "editor.formatOnSave": false
+      "editor.formatOnSave": true
   },
   // tell the ESLint plugin to run on save
   "eslint.validate": [ "html", "javascript", "javascriptreact"],
@@ -22,7 +22,7 @@
   //],
   "eslint.workingDirectories": [
       {
-          "mode": "auto"
+          "mode": "auto",
       }
   ],
   "editor.codeActionsOnSave": {
