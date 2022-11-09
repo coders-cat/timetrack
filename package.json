@@ -1,14 +1,14 @@
 {
   "name": "timetrack",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "bulma": "^0.9.4",
     "bulma-switch": "^2.0.4",
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.2",
     "dexie": "^3.2.2",
     "dexie-export-import": "^1.0.3",
     "pretty-ms": "^8.0.0",
@@ -16,20 +16,20 @@
     "react": "^18.2.0",
     "react-bulma-components": "^4.1.0",
     "react-dom": "^18.2.0",
-    "react-dropzone": "^14.2.2",
-    "web-vitals": "^2.1.4",
-    "workbox-background-sync": "^6.5.2",
-    "workbox-broadcast-update": "^6.5.2",
-    "workbox-cacheable-response": "^6.5.2",
-    "workbox-core": "^6.5.2",
-    "workbox-expiration": "^6.5.2",
-    "workbox-google-analytics": "^6.5.2",
-    "workbox-navigation-preload": "^6.5.2",
-    "workbox-precaching": "^6.5.2",
-    "workbox-range-requests": "^6.5.2",
-    "workbox-routing": "^6.5.2",
-    "workbox-strategies": "^6.5.2",
-    "workbox-streams": "^6.5.2"
+    "react-dropzone": "^14.2.3",
+    "web-vitals": "^3.0.4",
+    "workbox-background-sync": "^6.5.4",
+    "workbox-broadcast-update": "^6.5.4",
+    "workbox-cacheable-response": "^6.5.4",
+    "workbox-core": "^6.5.4",
+    "workbox-expiration": "^6.5.4",
+    "workbox-google-analytics": "^6.5.4",
+    "workbox-navigation-preload": "^6.5.4",
+    "workbox-precaching": "^6.5.4",
+    "workbox-range-requests": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4",
+    "workbox-streams": "^6.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -56,14 +56,14 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^8.20.0",
+    "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react": "^7.31.10",
     "prettier": "^2.7.1",
     "react-scripts": "5.0.1",
-    "sass": "^1.53.0"
+    "sass": "^1.56.1"
   }
 }
