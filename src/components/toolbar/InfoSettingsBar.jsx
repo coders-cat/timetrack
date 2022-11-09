@@ -1,6 +1,6 @@
 import { Columns } from 'react-bulma-components';
 import Settings from 'components/settings/Settings';
-import TodayTime from '../work/TodayTime';
+import TodayTime from 'components/work/TodayTime';
 
 const InfoSettingsBar = () => (
   <Columns className="is-vcentered is-mobile is-centered">
