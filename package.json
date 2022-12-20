@@ -1,6 +1,6 @@
 {
   "name": "timetrack",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
