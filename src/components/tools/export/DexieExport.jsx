@@ -1,5 +1,5 @@
 import { Button, Form, Progress } from 'react-bulma-components';
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import { MessagesContext } from 'components/notification/MessagesContext';
 import db from 'db/db';
@@ -10,6 +10,13 @@ const DexieExport = () => {
   const [progress, setProgress] = useState(0);
   const [url, setUrl] = useState('');
   const linkRef = useRef();
+
+  useEffect(() => {
+    if (url) {
+      linkRef.current.click();
+      setUrl('');
+    }
+  }, [url]);
 
   const { Field, Control } = Form;
 
@@ -23,7 +30,6 @@ const DexieExport = () => {
     try {
       const blob = await exportDB(db, { prettyJson: true, progressCallback });
       setUrl(window.URL.createObjectURL(blob));
-      linkRef.current.click();
       setProgress(0);
     } catch (ex) {
       addException(ex);
