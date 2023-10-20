@@ -1,7 +1,7 @@
 import { Button, Content, Form, Modal } from 'react-bulma-components';
-import { render, unmountComponentAtNode } from 'react-dom';
 
 import PropTypes from 'prop-types';
+import { createRoot } from 'react-dom/client';
 
 const ConfirmModal = ({
   title,
@@ -15,7 +15,8 @@ const ConfirmModal = ({
   const unmountConfirmModal = () => {
     if (isFunction) {
       const target = document.getElementById('tt-confirm-modal');
-      unmountComponentAtNode(target);
+      const root = createRoot(target);
+      root.unmount();
       target.parentNode.removeChild(target);
     }
   };
@@ -69,8 +70,9 @@ export const confirmAlert = (properties) => {
     target.id = 'tt-confirm-modal';
     document.body.appendChild(target);
   }
+  const root = createRoot(target);
   // eslint-disable-next-line react/jsx-props-no-spreading
-  render(<ConfirmModal {...properties} isFunction />, target);
+  root.render(<ConfirmModal {...properties} isFunction />);
 };
 
 ConfirmModal.propTypes = {
