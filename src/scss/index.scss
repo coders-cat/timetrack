@@ -2,10 +2,10 @@
 @import 'variables';
 
 // @TODO Import only what you need from Bulma
-@import '~bulma/bulma.sass';
+@import 'bulma/sass';
 
 // Import some bulma extensions
-@import '~bulma-switch/src/sass/index.sass';
+@import 'bulma-switch/index.scss';
 
 // Import custom elements
 @import 'helpers';
