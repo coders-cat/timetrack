@@ -1,7 +1,7 @@
 import { Form } from 'react-bulma-components';
 import PropTypes from 'prop-types';
 
-const Datalist = ({ items, name, value, required, onChange }) => (
+const Datalist = ({ items, name, value, required = false, onChange }) => (
   <>
     <Form.Input
       list={name}
@@ -28,8 +28,4 @@ Datalist.propTypes = {
   value: PropTypes.string.isRequired,
   required: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
-};
-
-Datalist.defaultProps = {
-  required: false,
 };

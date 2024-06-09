@@ -66,7 +66,7 @@ const DateSetting = ({ setting }) => {
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       timeStyle: 'short',
       dateStyle: 'short',
-    }
+    },
   );
 
   const localDate = () => {
@@ -129,14 +129,14 @@ const DateSetting = ({ setting }) => {
             <Modal.Card.Footer>
               <Field kind="group">
                 <Control>
-                  <Button submit color="info">
-                    Save
-                  </Button>
-                </Control>
-                <Control>
-                  <Button type="reset" color="danger" onClick={onClose}>
-                    Cancel
-                  </Button>
+                  <Button.Group size="normal">
+                    <Button submit color="info">
+                      Save
+                    </Button>
+                    <Button type="reset" color="danger" onClick={onClose}>
+                      Cancel
+                    </Button>
+                  </Button.Group>
                 </Control>
               </Field>
             </Modal.Card.Footer>

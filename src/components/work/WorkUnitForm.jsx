@@ -36,7 +36,7 @@ const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
         </Modal.Card.Header>
         <form onSubmit={onSubmit}>
           <Modal.Card.Body className="is-unclipped">
-            <Content>
+            <Content m="3">
               <Field kind="group">
                 <Control>
                   <Input
@@ -67,7 +67,7 @@ const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
                 </Control>
               </Field>
             </Content>
-            <Content>
+            <Content m="3">
               <Field kind="group">
                 <Control>
                   <Input
@@ -102,12 +102,14 @@ const WorkUnitForm = ({ workunit, show, onClose, onChange, onSubmit }) => {
           <Modal.Card.Footer>
             <Field kind="group">
               <Control>
-                <Button submit color="info">
-                  Save
-                </Button>
-                <Button type="reset" color="danger" onClick={onClose}>
-                  Cancel
-                </Button>
+                <Button.Group size="normal">
+                  <Button submit color="info">
+                    Save
+                  </Button>
+                  <Button type="reset" color="danger" onClick={onClose}>
+                    Cancel
+                  </Button>
+                </Button.Group>
               </Control>
             </Field>
           </Modal.Card.Footer>

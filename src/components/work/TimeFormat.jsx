@@ -33,7 +33,3 @@ TimeFormat.propTypes = {
   time: PropTypes.number.isRequired,
   label: PropTypes.string,
 };
-
-TimeFormat.defaultProps = {
-  label: undefined,
-};

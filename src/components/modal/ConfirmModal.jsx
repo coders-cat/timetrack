@@ -5,22 +5,14 @@ import { createRoot } from 'react-dom/client';
 
 const ConfirmModal = ({
   title,
-  show,
+  show = false,
   onConfirm,
   onClose,
-  isFunction,
-  message,
+  isFunction = false,
+  unmountConfirmModal = () => {},
+  message = '',
   children,
 }) => {
-  const unmountConfirmModal = () => {
-    if (isFunction) {
-      const target = document.getElementById('tt-confirm-modal');
-      const root = createRoot(target);
-      root.unmount();
-      target.parentNode.removeChild(target);
-    }
-  };
-
   const handleClose = () => {
     unmountConfirmModal();
     onClose();
@@ -47,12 +39,14 @@ const ConfirmModal = ({
         <Modal.Card.Footer>
           <Form.Field kind="group">
             <Form.Control>
-              <Button color="primary" onClick={handleConfirm}>
-                Confirm
-              </Button>
-              <Button color="danger" onClick={handleClose}>
-                Cancel
-              </Button>
+              <Button.Group size="normal">
+                <Button color="primary" onClick={handleConfirm}>
+                  Confirm
+                </Button>
+                <Button color="danger" onClick={handleClose}>
+                  Cancel
+                </Button>
+              </Button.Group>
             </Form.Control>
           </Form.Field>
         </Modal.Card.Footer>
@@ -70,9 +64,22 @@ export const confirmAlert = (properties) => {
     target.id = 'tt-confirm-modal';
     document.body.appendChild(target);
   }
+
   const root = createRoot(target);
+
+  const unmountConfirmModal = () => {
+    root.unmount();
+    target.parentNode.removeChild(target);
+  };
+
   // eslint-disable-next-line react/jsx-props-no-spreading
-  root.render(<ConfirmModal {...properties} isFunction />);
+  root.render(
+    <ConfirmModal
+      {...properties}
+      isFunction
+      unmountConfirmModal={unmountConfirmModal}
+    />,
+  );
 };
 
 ConfirmModal.propTypes = {
@@ -81,13 +88,7 @@ ConfirmModal.propTypes = {
   onConfirm: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   isFunction: PropTypes.bool,
+  unmountConfirmModal: PropTypes.func,
   message: PropTypes.element,
   children: PropTypes.node,
-};
-
-ConfirmModal.defaultProps = {
-  show: false,
-  isFunction: false,
-  message: '',
-  children: undefined,
 };

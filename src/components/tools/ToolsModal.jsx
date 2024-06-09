@@ -23,8 +23,10 @@ const ToolsModal = () => {
             <Modal.Card.Title>Import/Export Tools</Modal.Card.Title>
           </Modal.Card.Header>
           <Modal.Card.Body>
-            <Content>
+            <Content m="3">
               <DexieExport />
+            </Content>
+            <Content m="3">
               <DexieImport />
             </Content>
           </Modal.Card.Body>

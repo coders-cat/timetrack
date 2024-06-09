@@ -47,12 +47,14 @@ const ProjectForm = ({
           <Modal.Card.Footer>
             <Field kind="group">
               <Control>
-                <Button submit color="info">
-                  Save
-                </Button>
-                <Button type="reset" color="danger" onClick={onClose}>
-                  Cancel
-                </Button>
+                <Button.Group size="normal">
+                  <Button submit color="info">
+                    Save
+                  </Button>
+                  <Button type="reset" color="danger" onClick={onClose}>
+                    Cancel
+                  </Button>
+                </Button.Group>
               </Control>
             </Field>
           </Modal.Card.Footer>

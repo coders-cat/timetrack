@@ -3,7 +3,14 @@ import { Button, Notification } from 'react-bulma-components';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-const Alert = ({ color, uid, message, dismissible, timeOut, onClose }) => {
+const Alert = ({
+  color = 'primary',
+  uid,
+  message,
+  dismissible = false,
+  timeOut = 0,
+  onClose = () => {},
+}) => {
   useEffect(() => {
     if (!dismissible || timeOut) {
       const timer = setTimeout(() => onClose(uid), timeOut || 5000);
@@ -38,11 +45,4 @@ Alert.propTypes = {
   dismissible: PropTypes.bool,
   timeOut: PropTypes.number,
   onClose: PropTypes.func,
-};
-
-Alert.defaultProps = {
-  color: 'primary',
-  dismissible: false,
-  timeOut: 0,
-  onClose: () => {},
 };
